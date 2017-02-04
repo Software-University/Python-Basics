@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Python Flask Bucket List App</title>
+		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Calculator</h1>
+			</div>
+
+			<div class="row">
+				<form id="the-form">
+					<input type="name" name="number1" id="number1" class="form-control" placeholder="First number" />
+					+
+					<input type="name" name="number2" id="number2" class="form-control" placeholder="Second number" />
+					=
+					<input type="name" name="result" id="result" class="form-control" />
+
+					<button id="btnCalc" class="btn btn-primary btn-block" type="button">Calculate!</button>
+				</form>
+			</div>
+
+			<footer class="footer">
+				<p>&copy; Company 2015</p>
+			</footer>
+		</div>
+		<script type="text/javascript" src="../static/js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('#btnCalc').click(function() {
+					$.ajax({
+						url: '/calc',
+						data: $('#the-form').serialize(),
+						type: 'GET',
+						success: function(response) {
+							$("#result").attr ("value", response);
+						},
+						error: function(error) {
+							$("#result").attr ("value", error);
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>
