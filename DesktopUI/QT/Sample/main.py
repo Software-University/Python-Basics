@@ -15,7 +15,6 @@ layout = QtGui.QVBoxLayout ();
 layout.addWidget (label);
 layout.addWidget (button1);
 
-
 window.setLayout (layout);
 
 QtCore.QObject.connect (button1, QtCore.SIGNAL ('clicked()'), QtGui.qApp, QtCore.SLOT ('quit()'));
