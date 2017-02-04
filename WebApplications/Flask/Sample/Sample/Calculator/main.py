@@ -1,12 +1,12 @@
-from flask import Flask, render_template, json, request
-app = Flask(__name__)
+from flask import Flask, render_template, request
+app = Flask (__name__)
 
-@app.route("/")
+@app.route ("/")
 def main ():
     return render_template ('index.html')
 
-@app.route('/calc')
-def calcSum ():
+@app.route ("/calc")
+def calcSumForMyActionLink ():
     # receive values and validate them
     num1 = 0
     num2 = 0
@@ -20,7 +20,10 @@ def calcSum ():
     if res != "":
         try:
             res = int (res)
-            answer = str (str (num1 + num2) + " != " + str (res))
+            if (int (num1 + num2) != res):
+                answer = str (str (int (num1 + num2)) + " != " + str (res))
+            else:
+                answer = str (int (num1 + num2))
             return answer
         except:
             return str (int (num1 + num2))
