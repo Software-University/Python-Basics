@@ -1,0 +1,1 @@
+mkdir Tests; cd Tests; for i in `seq -w 0 10` ; do ../../../TestProvider/Random.Word.sh 1000 > 04.$i.in; echo -n " " >> 04.$i.in ; ../../../TestProvider/Random.Word.sh 1000 >> 04.$i.in; python ../*.py < 04.$i.in > 04.$i.sol ; done
