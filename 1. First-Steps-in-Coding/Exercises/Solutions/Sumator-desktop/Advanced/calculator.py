@@ -1,15 +1,14 @@
-#!/usr/bin/env python
-
 import math
 
 from PyQt4 import QtCore, QtGui
+
 
 class Button(QtGui.QToolButton):
     def __init__(self, text, parent=None):
         super(Button, self).__init__(parent)
 
         self.setSizePolicy(QtGui.QSizePolicy.Expanding,
-                QtGui.QSizePolicy.Preferred)
+                           QtGui.QSizePolicy.Preferred)
         self.setText(text)
 
     def sizeHint(self):
@@ -21,7 +20,7 @@ class Button(QtGui.QToolButton):
 
 class Calculator(QtGui.QDialog):
     NumDigitButtons = 10
-    
+
     def __init__(self, parent=None):
         super(Calculator, self).__init__(parent)
 
@@ -43,17 +42,17 @@ class Calculator(QtGui.QDialog):
         self.display.setFont(font)
 
         self.digitButtons = []
-        
+
         for i in range(Calculator.NumDigitButtons):
             self.digitButtons.append(self.createButton(str(i),
-                    self.digitClicked))
+                                     self.digitClicked))
 
         self.pointButton = self.createButton(".", self.pointClicked)
         self.changeSignButton = self.createButton("\261",
-                self.changeSignClicked)
+                                                  self.changeSignClicked)
 
         self.backspaceButton = self.createButton("Backspace",
-                self.backspaceClicked)
+                                                 self.backspaceClicked)
         self.clearButton = self.createButton("Clear", self.clear)
         self.clearAllButton = self.createButton("Clear All", self.clearAll)
 
@@ -63,18 +62,18 @@ class Calculator(QtGui.QDialog):
         self.addToMemoryButton = self.createButton("M+", self.addToMemory)
 
         self.divisionButton = self.createButton("\367",
-                self.multiplicativeOperatorClicked)
+                                                self.multiplicativeOperatorClicked)
         self.timesButton = self.createButton("\327",
-                self.multiplicativeOperatorClicked)
+                                             self.multiplicativeOperatorClicked)
         self.minusButton = self.createButton("-", self.additiveOperatorClicked)
         self.plusButton = self.createButton("+", self.additiveOperatorClicked)
 
         self.squareRootButton = self.createButton("Sqrt",
-                self.unaryOperatorClicked)
+                                                  self.unaryOperatorClicked)
         self.powerButton = self.createButton("x\262",
-                self.unaryOperatorClicked)
+                                             self.unaryOperatorClicked)
         self.reciprocalButton = self.createButton("1/x",
-                self.unaryOperatorClicked)
+                                                  self.unaryOperatorClicked)
         self.equalButton = self.createButton("=", self.equalClicked)
 
         mainLayout = QtGui.QGridLayout()
