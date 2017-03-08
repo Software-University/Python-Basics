@@ -1,9 +1,0 @@
-#!/bin/bash
-mkdir Tests; 
-cd Tests; 
-for i in `seq -w 0 10` ; 
-do 
-	../../../TestProvider/Random.Number.sh 16 | sed 's/-//g' > 12.$i.in; 
-	echo $((`../../../TestProvider/Random.Number.sh 2 | sed 's/-//g'` % 55)) >> 12.$i.in; 
-	python ../*.py < 12.$i.in > 12.$i.sol ; 
-done

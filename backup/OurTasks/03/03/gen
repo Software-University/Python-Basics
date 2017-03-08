@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mkdir Tests;
+cd Tests;
+for i in `seq -w 2 10` ;
+do 
+	echo $i > 03.$i.in;
+	python ../*.py < 03.$i.in > 03.$i.sol;
+done
+
+j=11;
+for i in {J,Q,K,A} ; 
+do
+	echo $i > 03.$j.in;
+	python ../*.py < 03.$j.in > 03.$j.sol;
+	j=$(($j + 1));
+done
+echo "F" > 03.01.in;
+python ../*.py < 03.01.in > 03.01.sol;
+echo "1947" > 03.15.in;
+python ../*.py < 03.15.in > 03.15.sol;

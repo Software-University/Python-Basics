@@ -1,8 +1,0 @@
-#!/bin/bash
-mkdir Tests; 
-cd Tests; 
-for i in `seq -w 0 10` ; 
-do 
-	../../../TestProvider/Random.Number.sh 2 > 08.$i.in; 
-	python ../*.py < 08.$i.in > 08.$i.sol ; 
-done

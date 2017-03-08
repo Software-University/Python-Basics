@@ -1,2 +1,0 @@
-#!/bin/bash
-mkdir Tests; cd Tests; for i in `seq 0 1` ; do ../../../TestProvider/Empty.String.sh > 06.0$i.in ; python ../*.py < 06.0$i.in > 06.0$i.sol ; done

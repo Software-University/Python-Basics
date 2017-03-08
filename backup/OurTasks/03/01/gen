@@ -1,0 +1,9 @@
+#!/bin/bash
+mkdir Tests; 
+cd Tests; 
+for i in `seq -w 0 10` ; 
+do 
+	../../../TestProvider/Random.Decimal.sh 2 3 1 > 01.$i.in; 
+	../../../TestProvider/Random.Decimal.sh 2 3 1 >> 01.$i.in; 
+	python ../*.py < 01.$i.in > 01.$i.sol ; 
+done
